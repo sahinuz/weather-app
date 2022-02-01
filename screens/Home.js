@@ -1,12 +1,12 @@
 import React, {useState, useEffect} from 'react';
-import { View, Text, StyleSheet,TouchableWithoutFeedback, Keyboard,Image} from 'react-native';
+import { View, Text, StyleSheet,TouchableWithoutFeedback, Keyboard,Image,TouchableOpacity} from 'react-native';
 
 import {WEATHER_API_KEY} from '../apikeys/WeatherAPIKey.js';
 import {DarkTheme, LightTheme} from '../styles/style.js';
 import{WeatherIcons} from '../weatherIcons/weather_icons.js';
 import * as Location from 'expo-location';
 
-const Home = () => {
+const Home = ({navigation}) => {
     
     const [errorMsg, setErrorMsg] = useState(null);
     const [weather, setWeather] = useState(null);
@@ -94,6 +94,12 @@ const Home = () => {
             
             <View style = {styles.homeScreen}>
 
+            <View style={styles.menuButtonContainer}>
+                <TouchableOpacity onPress={()=>{navigation.navigate("CityMenu")}}>
+                <Image style={styles.menuButton} source={require( '../weatherIcons/' + 'menu-button' + '.png')} />
+                </TouchableOpacity>
+            </View>
+
             <View style={styles.weatherInfoContainer}>
             <Text style = {styles.homeCityName}>{weather===null ? "Loading..." : weather.cityName}</Text>
 
@@ -144,6 +150,10 @@ const styles= StyleSheet.create(
         weatherInfoContainer:{
             alignItems:'center',
             padding: 40
+        },
+        menuButtonContainer:{
+            paddingLeft:25,
+            paddingTop:60
         }
     }
 );

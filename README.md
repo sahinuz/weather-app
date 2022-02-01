@@ -5,3 +5,5 @@
 ---
 ### App finds the city where the user is located and shows the current conditions of the located city.
 ---
+### Screenshots
+![screenshot](https://i.ibb.co/qxfK6WB/Screenshot-1643713981.png)

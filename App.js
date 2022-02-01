@@ -4,6 +4,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import Home from './screens/Home.js';
+import CityMenu from './screens/CityMenu.js';
 import { useFonts } from 'expo-font';
 
 import AppLoading from 'expo-app-loading';
@@ -26,6 +27,7 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator screenOptions={{ headerShown: false}}>
         <Stack.Screen name="Home" component={Home} />
+        <Stack.Screen name="CityMenu" component={CityMenu} />
       </Stack.Navigator>
     </NavigationContainer>
   );
